@@ -281,7 +281,8 @@
 
     /* Hover or Active (Touch) to reveal */
     body.quiz-mode td:hover .val,
-    body.quiz-mode td:active .val {
+    body.quiz-mode td:active .val,
+    body.quiz-mode td.revealed .val {
       filter: blur(0px) !important;
       opacity: 1 !important;
     }
@@ -1832,8 +1833,19 @@
         document.body.classList.add('quiz-mode');
       } else {
         document.body.classList.remove('quiz-mode');
+        // Clear all revealed states
+        document.querySelectorAll('td.revealed').forEach(td => td.classList.remove('revealed'));
       }
     }
+
+    // Add click event for mobile touch compatibility
+    document.querySelectorAll('td').forEach(td => {
+      td.addEventListener('click', function() {
+        if (document.body.classList.contains('quiz-mode')) {
+          this.classList.toggle('revealed');
+        }
+      });
+    });
   </script>
 
 </body>
