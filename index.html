@@ -7,14 +7,14 @@
   <title>Từ vựng JLPT N5</title>
   <style>
     :root {
-      --primary: #059669;
-      --primary-light: #10b981;
-      --primary-bg: #ecfdf5;
-      --bg-color: #f8fafc;
-      --text-color: #334155;
-      --border-color: #e2e8f0;
-      --table-header: #f1f5f9;
-      --table-hover: #f0fdf4;
+      --primary: #fb7185;
+      --primary-light: #fda4af;
+      --primary-bg: #fff5f5;
+      --bg-color: #fffbfa;
+      --text-color: #581c2c;
+      --border-color: #ffe4e6;
+      --table-header: #fff1f2;
+      --table-hover: #fff5f6;
     }
 
     * {
@@ -23,31 +23,40 @@
       padding: 0;
     }
 
+    html,
+    body {
+      max-width: 100%;
+    }
+
     body {
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
       padding: 1.5rem;
-      padding-bottom: 6rem;
-      /* Space for sticky footer */
+      padding-bottom: 1rem;
     }
 
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      background: #ffffff;
-      padding: 2rem;
+      background: rgba(255, 251, 250, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 2rem 1rem 1.25rem 2rem;
       border-radius: 1rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(244, 114, 182, 0.08);
       position: relative;
+      border: 1px solid rgba(255, 228, 230, 0.5);
     }
 
     /* Tabs & Horizontal scroll */
     .header-section {
       position: sticky;
       top: 0;
-      background: #ffffff;
+      background: rgba(255, 251, 250, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       z-index: 100;
       padding: 2rem 0 0.5rem;
       margin: -2rem -2rem 1rem -2rem;
@@ -55,6 +64,7 @@
       padding-right: 2rem;
       border-radius: 1rem 1rem 0 0;
       box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 228, 230, 0.6);
     }
 
     .header-controls {
@@ -63,6 +73,36 @@
       justify-content: space-between;
       gap: 1rem;
       margin-top: 1rem;
+    }
+
+    /* Cute Reset Button styling */
+    .cute-reset-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fee2e2;
+      /* Cute pastel red/pink */
+      color: #991b1b;
+      border: 2px solid #fca5a5;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(239, 68, 68, 0.08);
+      transition: all 0.2s ease;
+      font-family: 'Outfit', 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+
+    .cute-reset-btn:hover {
+      background-color: #fecaca;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(239, 68, 68, 0.16);
+    }
+
+    .cute-reset-btn:active {
+      transform: translateY(1px);
     }
 
     .tabs-nav {
@@ -97,24 +137,17 @@
     }
 
     .tabs-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      margin: 0 -2rem;
-    }
-
-    .tabs-container::-webkit-scrollbar {
-      display: none;
+      display: block;
+      margin: 0;
     }
 
     .tab-pane {
-      flex: 0 0 100%;
+      display: none;
       width: 100%;
-      scroll-snap-align: start;
-      padding: 0 2rem;
+    }
+
+    .tab-pane.active {
+      display: block;
     }
 
     h1 {
@@ -137,7 +170,7 @@
     }
 
     h3 {
-      color: #047857;
+      color: #be185d;
       margin-top: 2rem;
       margin-bottom: 1rem;
       font-size: 1.25rem;
@@ -151,7 +184,7 @@
       padding: 1.5rem;
       margin: 1.5rem 0;
       border-radius: 0 0.5rem 0.5rem 0;
-      color: #064e3b;
+      color: #881337;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
@@ -161,15 +194,189 @@
 
     .note-box .table-responsive {
       margin-top: 1rem;
-      background: #ffffff;
-      border-color: #a7f3d0;
+      background: rgba(255, 255, 255, 0.5);
+      border-color: #fecdd3;
     }
 
     .list-item {
       padding-left: 1rem;
       margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Te-form Grouping Styles */
+    .group-header {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+      flex-wrap: wrap;
       gap: 0.5rem;
+    }
+
+    .group-header h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .group-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .badge-irregular {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    .badge-regular {
+      background-color: #ffe4e6;
+      color: #be185d;
+      border: 1px solid #fecdd3;
+    }
+
+    .badge-special {
+      background-color: #ffedd5;
+      color: #9a3412;
+      border: 1px solid #fdba74;
+    }
+
+    /* Grammar Rules List Styles */
+    .rule-details {
+      margin-top: 0.75rem;
+      padding-left: 0.5rem;
+      font-size: 0.85rem;
+      color: #881337;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .rule-row {
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .rule-example {
+      color: #be185d;
+      font-size: 0.78rem;
+      margin-left: 0.4rem;
+      opacity: 0.95;
+    }
+
+    /* Elegant Initial Loading Screen (Cute Mochi Style) */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f0fdf4;
+      /* Match light green bg */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .loading-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .cute-loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .cute-mochi {
+      width: 76px;
+      height: 58px;
+      background: #ffffff;
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(244, 63, 94, 0.2), inset 0 -6px 12px rgba(0, 0, 0, 0.04);
+      border: 3.5px solid #be185d;
+      animation: cuteBounce 0.5s ease-in-out infinite alternate;
+    }
+
+    .mochi-eyes {
+      position: absolute;
+      top: 24px;
+      left: 17px;
+      width: 8px;
+      height: 8px;
+      background: #4e0707;
+      border-radius: 50%;
+      box-shadow: 28px 0 0 #4e0707;
+    }
+
+    .mochi-blush {
+      position: absolute;
+      top: 30px;
+      left: 9px;
+      width: 10px;
+      height: 6px;
+      background: #ff8a80;
+      border-radius: 50%;
+      opacity: 0.85;
+      box-shadow: 42px 0 0 #ff8a80;
+    }
+
+    .mochi-mouth {
+      position: absolute;
+      top: 27px;
+      left: 31px;
+      width: 8px;
+      height: 6px;
+      border-bottom: 3px solid #4e0707;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    }
+
+    .cute-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #be185d;
+      letter-spacing: 0.05em;
+      animation: cutePulse 0.5s ease-in-out infinite alternate;
+      font-family: 'Outfit', 'Inter', sans-serif;
+    }
+
+    @keyframes cuteBounce {
+      0% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+      }
+
+      100% {
+        transform: translateY(-22px) scaleY(0.9) scaleX(1.04);
+      }
+    }
+
+    @keyframes cutePulse {
+      0% {
+        opacity: 0.65;
+        transform: scale(0.97);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1.03);
+      }
     }
 
     .table-responsive {
@@ -178,7 +385,7 @@
       -webkit-overflow-scrolling: touch;
       border-radius: 0.5rem;
       border: 1px solid var(--border-color);
-      margin: 1.5rem 0;
+      margin: 1.5rem 0 0.5rem 0;
     }
 
     table {
@@ -201,7 +408,7 @@
     }
 
     tbody tr:nth-child(even) {
-      background-color: #f8fafc;
+      background-color: rgba(255, 255, 255, 0.45);
     }
 
     tbody tr:hover {
@@ -239,6 +446,95 @@
     .table-responsive::-webkit-scrollbar-thumb {
       background: #cbd5e1;
       border-radius: 4px;
+    }
+
+    /* Collapse Section styling */
+    .section-block {
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .section-header {
+      cursor: pointer;
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      padding: 0.5rem 0.75rem;
+      margin: 1rem 0 !important;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+      background-color: transparent;
+    }
+    .section-header:hover {
+      background-color: var(--primary-bg);
+      color: var(--primary);
+    }
+    .collapse-toggle-icon {
+      font-size: 0.85rem;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--primary);
+      user-select: none;
+    }
+    .section-collapsed .collapse-toggle-icon {
+      transform: rotate(-90deg);
+    }
+    .section-content-wrapper {
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+      max-height: 20000px; /* Huge enough to prevent truncation on large lists */
+      opacity: 1;
+      overflow: hidden;
+    }
+    .section-collapsed .section-content-wrapper {
+      max-height: 0 !important;
+      opacity: 0 !important;
+    }
+
+    /* Refined Click Confetti */
+    .click-confetti-particle {
+      position: absolute;
+      z-index: 9999;
+      pointer-events: none;
+      border-radius: 50%;
+      will-change: transform, opacity;
+    }
+    @keyframes clickConfettiFade {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Falling Sakura Petals */
+    .sakura-petal {
+      position: fixed;
+      background: linear-gradient(135deg, #ffc2d1 0%, #ff8fa3 100%);
+      border-radius: 50% 0 50% 50%;
+      pointer-events: none;
+      z-index: 95;
+      opacity: 0.75;
+      will-change: transform, opacity;
+      box-shadow: 0 1px 3px rgba(255, 179, 193, 0.3);
+    }
+    @keyframes sakuraFall {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.75;
+      }
+      90% {
+        opacity: 0.75;
+      }
+      100% {
+        transform: translate(var(--dx), 105vh) rotate(var(--rot));
+        opacity: 0;
+      }
     }
 
     /* Floating Quiz Switch */
@@ -301,11 +597,11 @@
     }
 
     /* Quiz Mode Styles */
-    body.quiz-mode td[data-label="Kanji"] .val,
-    body.quiz-mode td[data-label="Hiragana (Hán Việt)"] .val,
-    body.quiz-mode td[data-label="Thể ます (Kanji)"] .val,
+    body.quiz-mode td[data-label="Kanji (Hán Việt)"] .val,
+    body.quiz-mode td[data-label="Hiragana"] .val,
+    body.quiz-mode td[data-label="Thể ます (Kanji - Hán Việt)"] .val,
     body.quiz-mode td[data-label="Thể ます (Hiragana)"] .val,
-    body.quiz-mode td[data-label="Thể て (Kanji)"] .val,
+    body.quiz-mode td[data-label="Thể て (Kanji - Hán Việt)"] .val,
     body.quiz-mode td[data-label="Thể て (Hiragana)"] .val {
       filter: blur(6px);
       opacity: 0.4;
@@ -324,7 +620,7 @@
     @media (max-width: 768px) {
       body {
         padding: 0;
-        padding-bottom: 6rem;
+        padding-bottom: 1.5rem;
         background-color: var(--bg-color);
       }
 
@@ -335,18 +631,24 @@
       }
 
       .header-section {
+        position: sticky;
+        top: 0;
+        z-index: 100;
         margin: -0.5rem -0.5rem 1rem -0.5rem;
-        padding: 0.5rem 0.5rem 0 0.5rem;
+        padding: 0.75rem 0.5rem 0.5rem 0.5rem;
         border-radius: 0;
-        background: var(--bg-color);
+        background: rgba(255, 251, 250, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 228, 230, 0.6);
       }
 
       .tabs-container {
-        margin: 0 -0.5rem;
+        margin: 0;
       }
 
       .tab-pane {
-        padding: 0 0.5rem;
+        padding: 0;
       }
 
       h1 {
@@ -395,72 +697,186 @@
       tbody {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
 
       tr {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         background: #ffffff !important;
         border: 1px solid var(--border-color);
-        border-radius: 0.5rem;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        padding: 0;
+        border-radius: 0.6rem;
+        padding: 0.5rem 0.6rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         overflow: hidden;
       }
 
       td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.4rem 0.75rem;
-        border-bottom: 1px solid #f1f5f9;
-        text-align: right;
+        display: block;
+        width: auto;
+        padding: 0.1rem 0;
+        border: none;
+        text-align: center;
         font-size: 0.9rem;
       }
 
-      td:last-child {
-        border-bottom: none;
-      }
-
       td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #64748b;
-        margin-right: 0.5rem;
-        text-align: left;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        display: none;
       }
 
       td:empty {
         display: none;
       }
 
-      td[data-label="↔"],
-      td[data-label="→"] {
-        display: none;
+      /* Compact Adjective / Verb Paired Side-by-Side Design on Mobile */
+      /* Word 1 (Left) */
+      td[data-label="Kanji (Hán Việt)"]:nth-child(1) {
+        order: 1;
+        width: 46%;
+        font-weight: 700;
+        color: #1e293b;
+        font-size: 0.95rem;
       }
 
-      td[data-label="Kanji"],
-      td[data-label="Thể ます (Kanji)"],
-      td[data-label="Thể て (Kanji)"] {
-        background: #f8fafc;
-        color: #0f172a;
-        border-bottom: 2px solid #e2e8f0;
+      td[data-label="↔"]:nth-child(4) {
+        order: 2;
+        width: 8%;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: #8d6e63;
+        font-weight: bold;
+        font-size: 0.9rem;
       }
 
-      td:nth-child(5) {
-        border-top: 3px dashed var(--border-color);
-        margin-top: 0.25rem;
+      /* Word 2 (Right) */
+      td[data-label="Kanji (Hán Việt)"]:nth-child(5) {
+        order: 3;
+        width: 46%;
+        font-weight: 700;
+        color: #1e293b;
+        font-size: 0.95rem;
+      }
+
+      /* Hiragana Row */
+      td[data-label="Hiragana"]:nth-child(2) {
+        order: 4;
+        width: 46%;
+        color: #64748b;
+        font-size: 0.8rem;
+        margin-right: 8%;
+      }
+
+      td[data-label="Hiragana"]:nth-child(6) {
+        order: 5;
+        width: 46%;
+        color: #64748b;
+        font-size: 0.8rem;
+      }
+
+      /* Meaning Row */
+      td[data-label="Nghĩa"]:nth-child(3) {
+        order: 6;
+        width: 46%;
+        color: #be185d;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin-right: 8%;
+      }
+
+      td[data-label="Nghĩa"]:nth-child(7) {
+        order: 7;
+        width: 46%;
+        color: #be185d;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      /* For non-paired single Adjectives/Verbs on Mobile: Expand to full width */
+      tr:not(:has(td:nth-child(5):not(:empty))) td {
+        width: 100% !important;
+        text-align: center !important;
+        margin-right: 0 !important;
+      }
+
+      tr:not(:has(td:nth-child(5):not(:empty))) td[data-label="↔"] {
+        display: none !important;
+      }
+
+      /* Te-Form Card Design on Mobile */
+      td[data-label="Thể ます (Kanji - Hán Việt)"]:nth-child(1) {
+        order: 1;
+        width: 46%;
+        font-weight: 600;
+        color: #475569;
+        font-size: 0.85rem;
+      }
+
+      td[data-label="→"]:nth-child(3) {
+        order: 2;
+        width: 8%;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+
+      td[data-label="Thể て (Kanji - Hán Việt)"]:nth-child(4) {
+        order: 3;
+        width: 46%;
+        font-weight: 700;
+        color: #db2777;
+        font-size: 0.95rem;
+      }
+
+      td[data-label="Thể ます (Hiragana)"]:nth-child(2) {
+        order: 4;
+        width: 46%;
+        color: #64748b;
+        font-size: 0.8rem;
+        margin-right: 8%;
+      }
+
+      td[data-label="Thể て (Hiragana)"]:nth-child(5) {
+        order: 5;
+        width: 46%;
+        color: #db2777;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      td[data-label="Nghĩa"]:nth-child(6) {
+        order: 6;
+        width: 100%;
+        color: #7c3aed;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-top: 1px dashed #f1f5f9;
+        padding-top: 0.3rem;
+        margin-top: 0.2rem;
       }
 
       .header-controls {
-        gap: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: space-between;
+      }
+
+      .tabs-nav {
+        width: 100%;
+        flex: none;
+        justify-content: space-around;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.4rem;
+        margin-bottom: 0.1rem;
       }
 
       .header-toggle {
+        flex: 1;
+        justify-content: center;
+        max-width: calc(50% - 0.3rem);
         padding: 0.4rem 0.6rem;
       }
 
@@ -472,14 +888,212 @@
       .toggle-label {
         font-size: 0.85rem;
       }
+
+      .note-box table {
+        display: table !important;
+        width: 100% !important;
+        white-space: normal !important;
+      }
+
+      .note-box thead {
+        display: table-header-group !important;
+      }
+
+      .note-box tbody {
+        display: table-row-group !important;
+      }
+
+      .note-box tr {
+        display: table-row !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .note-box th,
+      .note-box td {
+        display: table-cell !important;
+        width: auto !important;
+        padding: 0.35rem 0.25rem !important;
+        font-size: 0.75rem !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        text-align: left !important;
+        order: unset !important;
+        margin: 0 !important;
+      }
+    }
+
+    /* Flashcard Styles */
+    body.flashcard-mode table {
+      display: none;
+    }
+
+    body.flashcard-mode .note-box table {
+      display: table;
+    }
+
+    .flashcards-container-div {
+      display: none;
+      padding: 0.5rem 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    body.flashcard-mode .flashcards-container-div {
+      display: block;
+    }
+
+    .flashcard-pair {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      width: 100%;
+    }
+
+    .flashcard-separator {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #8d6e63;
+      padding: 0 0.1rem;
+      user-select: none;
+    }
+
+    .flashcard {
+      background: transparent;
+      perspective: 1000px;
+      height: 90px;
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .flashcard.single-card {
+      max-width: 100%;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .flashcard:hover .flashcard-inner {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(141, 110, 99, 0.15);
+    }
+
+    .flashcard.is-flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard.is-flipped:hover .flashcard-inner {
+      transform: rotateY(180deg) translateY(-2px);
+    }
+
+    .flashcard-front,
+    .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.5rem;
+      box-sizing: border-box;
+    }
+
+    /* Front: Washi paper / Light birch wood look */
+    .flashcard-front {
+      background: #fbf9f5;
+      border: 2px solid #8d6e63;
+      color: #4e342e;
+    }
+
+    .flashcard-front .front-mean {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* Back: Dark cedar / Walnut wood gradient */
+    .flashcard-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #705446 0%, #4a3429 100%);
+      border: 1px solid #3e2723;
+      color: #fbe9e7;
+    }
+
+    /* Specific wood variations */
+    .card-adjective .flashcard-back {
+      background: linear-gradient(135deg, #705446 0%, #4a3429 100%);
+    }
+
+    .card-verb .flashcard-back {
+      background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%);
+    }
+
+    .card-te .flashcard-back {
+      background: linear-gradient(135deg, #6d4c41 0%, #271c19 100%);
+    }
+
+    /* Typography on Back */
+    .flashcard-back .back-kanji {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffd54f;
+      /* Warm gold Kanji */
+      margin-bottom: 0.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .flashcard-back .back-kanji-te {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffd54f;
+      margin-bottom: 0.03rem;
+    }
+
+    .flashcard-back .back-hira {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .flashcard-back .back-hira-te {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
+  <!-- Màn hình Loading khởi tạo 0.2s (Cute Mochi Style) -->
+  <div id="app-loading-screen" class="loading-overlay">
+    <div class="cute-loading-container">
+      <div class="cute-mochi">
+        <div class="mochi-eyes"></div>
+        <div class="mochi-blush"></div>
+        <div class="mochi-mouth"></div>
+      </div>
+      <div class="cute-text">Đang chuẩn bị từ vựng... 🌸</div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="header-section">
-      <h1>Động từ và Tính từ — Minna no Nihongo N5 (Bài 1–14)</h1>
+      <h1>Động từ và Tính từ — N5 1–14</h1>
       <div class="header-controls">
         <div class="tabs-nav" id="tabsNav">
           <button class="tab-link active" onclick="scrollToTab(0)">Tính từ</button>
@@ -491,1444 +1105,733 @@
           <div class="toggle-switch"></div>
           <span class="toggle-label">Học</span>
         </label>
+        <label class="header-toggle">
+          <input type="checkbox" id="viewToggle" onchange="toggleViewMode()">
+          <div class="toggle-switch"></div>
+          <span class="toggle-label">Thẻ bài</span>
+        </label>
+        <button class="cute-reset-btn" onclick="resetAppMemory()">
+          Xoá ghi nhớ 🧹
+        </button>
       </div>
     </div>
     <div class="tabs-container" id="tabsContainer">
-      <div class="tab-pane" id="tab-0">
-        <h2 id="tinh-tu">1. Tính từ い (i-keiyōshi)</h2>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>大きい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おおきい (ĐẠI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>To, lớn</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>小さい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ちいさい (TIỂU)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhỏ, bé</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>新しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あたらしい (TÂN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mới</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>古い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ふるい (CỔ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cũ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>いい・よい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いい・よい (LƯƠNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tốt, hay</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>悪い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>わるい (ÁC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xấu, tệ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>暑い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あつい (THỬ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nóng (thời tiết)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>寒い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>さむい (HÀN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lạnh (thời tiết)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>熱い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あつい (NHIỆT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nóng (vật/cảm giác)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>冷たい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>つめたい (LÃNH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lạnh, buốt (vật)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>暖かい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あたたかい (NOÃN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ấm áp</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>涼しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>すずしい (LƯƠNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mát mẻ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>難しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>むずかしい (NAN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Khó</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>易しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>やさしい (DỊ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dễ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>高い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>たかい (CAO)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đắt tiền</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>安い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>やすい (AN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rẻ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>高い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>たかい (CAO)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cao (chiều cao)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>低い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ひくい (ĐÊ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Thấp</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>面白い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おもしろい (THÚ VỊ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Thú vị</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>つまらない</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>つまらない</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tẻ nhạt, chán</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>おいしい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おいしい (MỸ VỊ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngon</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>まずい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>まずい</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dở, không ngon</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>明るい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あかるい (MINH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Sáng sủa</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>暗い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>くらい (ÁM)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tối tăm</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>近い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ちかい (CẬN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gần</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>遠い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>とおい (VIỄN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xa</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>速い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はやい (TỐC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhanh</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>遅い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おそい (TRÌ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Chậm</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>早い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はやい (TẢO)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Sớm</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>遅い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おそい (TRÌ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Muộn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>多い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おおい (ĐA)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhiều</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>少ない</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>すくない (THIỂU)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ít</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>重い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おもい (TRỌNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nặng</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>軽い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かるい (KHINH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhẹ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>広い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ひろい (QUẢNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rộng rãi</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>狭い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>せまい (HIỆP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Chật hẹp</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>長い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ながい (TRƯỜNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dài</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>短い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>みじかい (ĐOẢN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngắn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>甘い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あまい (CAM)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngọt</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>辛い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>からい (TÂN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cay</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>忙しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いそがしい (MANG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bận rộn</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>暇な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ひまな (HẠ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rảnh rỗi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>若い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>わかい (NHƯỢC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Trẻ (tuổi)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h2>2. Tính từ な (na-keiyōshi)</h2>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>綺麗な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>きれいな (KỲ LỆ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đẹp, sạch sẽ</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>汚い</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>きたない (Ô)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bẩn, dơ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>賑やかな</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>にぎやかな (CHẨN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Náo nhiệt</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>静かな</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>しずかな (TĨNH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Yên tĩnh</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>便利な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>べんりな (TIỆN LỢI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tiện lợi</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>不便な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ふべんな (BẤT TIỆN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bất tiện</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>好きな</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>すきな (HẢO)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Thích</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>嫌いな</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>きらいな (HIỀM)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ghét</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>上手な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>じょうずな (THƯỢNG THỦ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Giỏi, khéo</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>下手な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>へたな (HẠ THỦ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Kém, vụng</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>暇な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ひまな (HẠ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rảnh rỗi</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>忙しい</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いそがしい (MANG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bận rộn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>有名な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ゆうめいな (HỮU DANH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nổi tiếng</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>親切な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>しんせつな (THÂN THIẾT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tử tế</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>元気な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>げんきな (NGUYÊN KHÍ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Khỏe mạnh</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>大切な</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>たいせつな (ĐẠI THIẾT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Quý giá, quan trọng</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="tab-pane active" id="tab-0">
+        <!-- Rendered dynamically via JS -->
       </div>
       <div class="tab-pane" id="tab-1">
-        <h2 id="dong-tu">3. Động từ</h2>
-        <h3>3.1 Hoạt động hàng ngày (Bài 4)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>起きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おきます (KHỞI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Thức dậy</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>寝ます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ねます (TẨM)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi ngủ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>働きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はたらきます (LAO ĐỘNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Làm việc</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>休みます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>やすみます (HƯU)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nghỉ ngơi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>食べます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>たべます (THỰC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ăn</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>飲みます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>のみます (ẨM)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Uống</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>始まります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はじまります (THỦY)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bắt đầu (自動詞)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>終わります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おわります (CHUNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Kết thúc</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>始めます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はじめます (THỦY)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bắt đầu (他動詞)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>終わります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おわります (CHUNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Kết thúc</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.2 Di chuyển (Bài 5)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>行きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いきます (HÀNH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>来ます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>きます (LAI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đến, tới</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>行きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いきます (HÀNH)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi (rời nơi này)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>帰ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かえります (QUY)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Về, trở về</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.3 Hành động có đối tượng (Bài 6)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>書きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かきます (THƯ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Viết</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>読みます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>よみます (ĐỌC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đọc</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>聞きます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ききます (VĂN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nghe</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>話します</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はなします (THOẠI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nói, trò chuyện</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>買います</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かいます (MUA)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mua</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>売ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>うります (BÁI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bán</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>見ます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>みます (KIẾN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xem, nhìn</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>撮ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>とります (NHIẾP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Chụp ảnh</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>会います</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あいます (HỘI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gặp gỡ</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>します</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>します</span></td>
-                <td data-label='Nghĩa'><span class='val'>Làm</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>吸います</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>すいます (HÚT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Hút (thuốc)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.4 Trao đổi, dạy học (Bài 7)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>あげます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あげます (TẶNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cho, tặng</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>もらいます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>もらいます (THỤ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhận, được</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>貸します</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かします (THẢI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cho mượn</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>借ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>かります (TÁ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mượn, vay</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>教えます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おしえます (GIÁO)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dạy, chỉ</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>習います</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>ならいます (TẬP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Học, tập</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>送ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おくります (TỐNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gửi</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>切ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>きります (THIẾT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cắt</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.5 Tồn tại, sở hữu (Bài 9–10)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>あります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あります (HỮU)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Có (vật vô tri)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>います</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>います (TẠI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Có (người/động vật)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>分かります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>わかります (PHÂN)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Hiểu, biết</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.6 Di chuyển ra/vào, lên/xuống (Bài 11–13)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>入ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>はいります (NHẬP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi vào</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>出ます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>でます (XUẤT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi ra</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>乗ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>のります (THỪA)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lên (xe, tàu)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>降ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>おります (GIÁNG)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xuống (xe, tàu)</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>3.7 Mở/Đóng, Bật/Tắt — thể て (Bài 14)</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-                <th>↔</th>
-                <th>Kanji</th>
-                <th>Hiragana (Hán Việt)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Kanji'><span class='val'>開けます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>あけます (KHAI)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mở (cửa, cửa sổ)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>閉めます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>しめます (BẾ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đóng (cửa, cửa sổ)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>つけます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>つけます (TRƯỚC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bật (điện, máy)</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>消します</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>けします (TIÊU)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tắt (điện, máy)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>入れます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>いれます (NHẬP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bỏ vào, cho vào</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>出します</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>だします (XUẤT)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lấy ra, rút ra</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>立ちます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>たちます (LẬP)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đứng dậy</span></td>
-                <td data-label='↔'><span class='val'>↔</span></td>
-                <td data-label='Kanji'><span class='val'>座ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>すわります (TỌA)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngồi xuống</span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>持ちます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>もちます (TRÌ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cầm, mang</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>止めます</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>とめます (CHỈ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dừng lại, đỗ xe</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>曲がります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>まがります (KHÚC)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rẽ (trái/phải)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-              <tr>
-                <td data-label='Kanji'><span class='val'>渡ります</span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'>わたります (ĐỘ)</span></td>
-                <td data-label='Nghĩa'><span class='val'>Qua (đường, cầu)</span></td>
-                <td data-label='↔'><span class='val'></span></td>
-                <td data-label='Kanji'><span class='val'></span></td>
-                <td data-label='Hiragana (Hán Việt)'><span class='val'></span></td>
-                <td data-label='Nghĩa'><span class='val'></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Rendered dynamically via JS -->
       </div>
       <div class="tab-pane" id="tab-2">
         <h2 id="the-te">4. Chia nhóm Động từ thể て (Te-form)</h2>
         <div class='note-box'>
-          <p><strong>Quy tắc chia thể て từ thể ます:</strong></p>
-          <p class='list-item'>• <strong>Nhóm 3 (Bất quy tắc):</strong> します → <strong>して</strong> ／ 来ます →
-            <strong>来て</strong>
+          <p><strong>Quy tắc chia thể て từ thể ます (Hiragana):</strong></p>
+          <p class='list-item'>• <strong>Nhóm 3 (Bất quy tắc):</strong> します ➔ <strong>して</strong> ／ きます (đến) ➔
+            <strong>きて</strong> <span style="font-size: 0.75rem; color: #b91c1c; font-weight: 500;">(Phân biệt:
+              <strong>きます (đến)</strong> là Nhóm 3, còn <strong>きます (mặc)</strong> là Nhóm 2)</span>
           </p>
           <p class='list-item'>• <strong>Nhóm 2:</strong> Bỏ <strong>ます</strong>, thêm <strong>て</strong> (ví dụ:
-            食べ<strong>ます</strong> → 食べ<strong>て</strong>)</p>
-          <p class='list-item'>• <strong>Nhóm 1:</strong> Nhìn vào âm ngay <strong>trước ます</strong>, thay theo bảng:
+            たべ<strong>ます</strong> ➔ たべ<strong>て</strong>)</p>
+          <p class='list-item'>• <strong>Nhóm 1:</strong> Nhìn vào âm ngay <strong>trước ます</strong>, thay theo quy tắc:
           </p>
-          <div class='table-responsive'>
-            <table>
-              <thead>
-                <tr>
-                  <th>Âm trước ます</th>
-                  <th>→</th>
-                  <th>Thể て</th>
-                  <th>Ví dụ</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>~<strong>い</strong>ます / ~<strong>ち</strong>ます /
-                      ~<strong>り</strong>ます</span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>って</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>買います→買って、立ちます→立って、帰ります→帰って</span></td>
-                </tr>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>~<strong>み</strong>ます / ~<strong>び</strong>ます /
-                      ~<strong>に</strong>ます</span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>んで</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>飲みます→飲んで、遊びます→遊んで</span></td>
-                </tr>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>~<strong>き</strong>ます</span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>いて</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>書きます→書いて</span></td>
-                </tr>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>~<strong>ぎ</strong>ます</span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>いで</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>急ぎます→急いで</span></td>
-                </tr>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>~<strong>し</strong>ます</span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>して</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>話します→話して</span></td>
-                </tr>
-                <tr>
-                  <td data-label='Âm trước ます'><span class='val'>⚠️ 行き<strong>ます</strong></span></td>
-                  <td data-label='→'><span class='val'>→</span></td>
-                  <td data-label='Thể て'><span class='val'><strong>行って</strong></span></td>
-                  <td data-label='Ví dụ'><span class='val'>(ngoại lệ của ~きます)</span></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="rule-details">
+            <div class="rule-row">• ~<strong>い</strong> / ~<strong>ち</strong> / ~<strong>り</strong> ます ➔
+              <strong>って</strong> <span class="rule-example">(Ví dụ: かいます➔かって、たちます➔たって、かえります➔かえって)</span>
+            </div>
+            <div class="rule-row">• ~<strong>み</strong> / ~<strong>び</strong> / ~<strong>に</strong> ます ➔
+              <strong>んで</strong> <span class="rule-example">(Ví dụ: のみます➔のんで、あそびます➔あそんで)</span>
+            </div>
+            <div class="rule-row">• ~<strong>き</strong> ます ➔ <strong>いて</strong> <span class="rule-example">(Ví dụ:
+                かきます➔かいて)</span></div>
+            <div class="rule-row">• ~<strong>ぎ</strong> ます ➔ <strong>いで</strong> <span class="rule-example">(Ví dụ:
+                いそぎます➔いそいで)</span></div>
+            <div class="rule-row">• ~<strong>し</strong> ます ➔ <strong>して</strong> <span class="rule-example">(Ví dụ:
+                はなします➔はなして)</span></div>
+            <div class="rule-row">• ⚠️ いき<strong>ます</strong> (đi) ➔ <strong>いって</strong> <span
+                class="rule-example">(Ngoại lệ)</span></div>
           </div>
         </div>
-        <hr>
-        <h3>4.1 Nhóm 3 — Bất quy tắc</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>します</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>します</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>して</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>して</span></td>
-                <td data-label='Nghĩa'><span class='val'>Làm</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>来ます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>きます (LAI)</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>来て</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>きて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đến</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h3>4.2 Nhóm 2 — Bỏ ます, thêm て</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>起きます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>おきます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>起きて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>おきて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Thức dậy</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>寝ます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>ねます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>寝て</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>ねて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngủ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>食べます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>たべます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>食べて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>たべて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ăn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>見ます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>みます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>見て</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>みて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xem, nhìn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>教えます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>おしえます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>教えて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>おしえて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dạy</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>始めます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>はじめます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>始めて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>はじめて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bắt đầu (他)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>開けます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>あけます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>開けて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>あけて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mở</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>閉めます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>しめます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>閉めて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>しめて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đóng</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>入れます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>いれます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>入れて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>いれて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bỏ vào</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>止めます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>とめます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>止めて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>とめて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Dừng, đỗ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>あげます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>あげます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>あげて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>あげて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cho, tặng</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>借ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>かります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>借りて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>かりて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mượn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>降ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>おります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>降りて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>おりて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Xuống (xe)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>出ます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>でます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>出て</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>でて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi ra</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h3>4.3 Nhóm 1A — ~います / ~ちます / ~ります → ~って</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>買います</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>かいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>買って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>かって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Mua</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>会います</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>あいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>会って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>あって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gặp</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>習います</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>ならいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>習って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>ならって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Học</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>もらいます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>もらいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>もらって</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>もらって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nhận</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>吸います</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>すいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>吸って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>すって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Hút</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>歌います</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>うたいます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>歌って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>うたって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Hát</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>立ちます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>たちます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>立って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>たって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đứng dậy</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>持ちます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>もちます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>持って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>もって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cầm, mang</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>待ちます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>まちます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>待って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>まって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đợi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>帰ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>かえります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>帰って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>かえって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Về nhà</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>乗ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>のります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>乗って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>のって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lên (xe)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>入ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>はいります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>入って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>はいって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi vào</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>撮ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>とります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>撮って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>とって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Chụp ảnh</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>送ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>おくります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>送って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>おくって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gửi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>切ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>きります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>切って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>きって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cắt</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>曲がります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>まがります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>曲がって</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>まがって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Rẽ</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>渡ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>わたります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>渡って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>わたって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Qua đường</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>終わります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>おわります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>終わって</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>おわって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Kết thúc</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>始まります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>はじまります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>始まって</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>はじまって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bắt đầu (自)</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>分かります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>わかります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>分かって</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>わかって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Hiểu</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>売ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>うります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>売って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>うって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Bán</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>座ります</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>すわります</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>座って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>すわって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Ngồi</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h3>4.4 Nhóm 1B — ~みます / ~びます / ~にます → ~んで</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>飲みます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>のみます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>飲んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>のんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Uống</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>読みます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>よみます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>読んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>よんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đọc</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>休みます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>やすみます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>休んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>やすんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nghỉ ngơi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>住みます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>すみます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>住んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>すんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Sống, cư trú</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>遊びます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>あそびます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>遊んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>あそんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Chơi</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>呼びます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>よびます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>呼んで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>よんで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Gọi</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h3>4.5 Nhóm 1C — ~きます → ~いて　／　~ぎます → ~いで</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>書きます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>かきます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>書いて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>かいて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Viết</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>聞きます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>ききます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>聞いて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>きいて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nghe</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>働きます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>はたらきます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>働いて</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>はたらいて</span></td>
-                <td data-label='Nghĩa'><span class='val'>Làm việc</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>急ぎます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>いそぎます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>急いで</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>いそいで</span></td>
-                <td data-label='Nghĩa'><span class='val'>Vội vã</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>⚠️ 行きます</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>いきます</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>⚠️ 行って</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>いって</span></td>
-                <td data-label='Nghĩa'><span class='val'>Đi (ngoại lệ)</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <h3>4.6 Nhóm 1D — ~します → ~して</h3>
-        <div class='table-responsive'>
-          <table>
-            <thead>
-              <tr>
-                <th>Thể ます (Kanji)</th>
-                <th>Thể ます (Hiragana)</th>
-                <th>→</th>
-                <th>Thể て (Kanji)</th>
-                <th>Thể て (Hiragana)</th>
-                <th>Nghĩa</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>話します</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>はなします</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>話して</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>はなして</span></td>
-                <td data-label='Nghĩa'><span class='val'>Nói chuyện</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>貸します</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>かします</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>貸して</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>かして</span></td>
-                <td data-label='Nghĩa'><span class='val'>Cho mượn</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>消します</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>けします</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>消して</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>けして</span></td>
-                <td data-label='Nghĩa'><span class='val'>Tắt</span></td>
-              </tr>
-              <tr>
-                <td data-label='Thể ます (Kanji)'><span class='val'>出します</span></td>
-                <td data-label='Thể ます (Hiragana)'><span class='val'>だします</span></td>
-                <td data-label='→'><span class='val'>→</span></td>
-                <td data-label='Thể て (Kanji)'><span class='val'>出して</span></td>
-                <td data-label='Thể て (Hiragana)'><span class='val'>だして</span></td>
-                <td data-label='Nghĩa'><span class='val'>Lấy ra</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr>
-        <div class='note-box'>
-          <p>⚠️ <strong>Chú ý đuôi ~ります:</strong> Có 2 nhóm khác nhau, cần học thuộc từng từ:</p>
-          <div class='table-responsive'>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nhóm 1A (~ります → <strong>って</strong>)</th>
-                  <th>Nhóm 2 (~ります → <strong>て</strong>)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-label='Nhóm 1A (~ります → って)'><span class='val'>帰ります → 帰<strong>って</strong></span></td>
-                  <td data-label='Nhóm 2 (~ります → て)'><span class='val'>借ります → 借<strong>りて</strong></span></td>
-                </tr>
-                <tr>
-                  <td data-label='Nhóm 1A (~ります → って)'><span class='val'>乗ります → 乗<strong>って</strong></span></td>
-                  <td data-label='Nhóm 2 (~ります → て)'><span class='val'>降ります → 降<strong>りて</strong></span></td>
-                </tr>
-                <tr>
-                  <td data-label='Nhóm 1A (~ります → って)'><span class='val'>入ります → 入<strong>って</strong></span></td>
-                  <td data-label='Nhóm 2 (~ります → て)'><span class='val'></span></td>
-                </tr>
-                <tr>
-                  <td data-label='Nhóm 1A (~ります → って)'><span class='val'>送ります → 送<strong>って</strong></span></td>
-                  <td data-label='Nhóm 2 (~ります → て)'><span class='val'></span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <div id="te-groups-container"></div>
       </div>
     </div>
   </div>
 
-
-
+  <script src="vocab_data.js"></script>
   <script>
-    function scrollToTab(index) {
-      const container = document.getElementById('tabsContainer');
-      const pane = document.getElementById('tab-' + index);
-      if (pane) {
-        // Find offset relative to parent
-        container.scrollTo({ left: pane.offsetLeft - container.offsetLeft, behavior: 'smooth' });
+    let collapsedSections = {};
+    try {
+      const savedCollapsed = localStorage.getItem('n5_collapsed_sections');
+      if (savedCollapsed) {
+        collapsedSections = JSON.parse(savedCollapsed);
+      }
+    } catch (e) {
+      console.error('Lỗi khôi phục trạng thái thu gọn:', e);
+    }
+
+    function toggleSectionCollapse(sectionId) {
+      const block = document.querySelector(`.section-block[data-section-id="${sectionId}"]`);
+      if (!block) return;
+      
+      const isCollapsed = block.classList.toggle('section-collapsed');
+      collapsedSections[sectionId] = isCollapsed;
+      try {
+        localStorage.setItem('n5_collapsed_sections', JSON.stringify(collapsedSections));
+      } catch (e) {
+        console.error(e);
       }
     }
 
-    // Intersection observer to update active tab button
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const tabId = entry.target.id;
-          const index = tabId.split('-')[1];
-          document.querySelectorAll('.tab-link').forEach((btn, i) => {
-            if (i == index) btn.classList.add('active');
-            else btn.classList.remove('active');
-          });
-        }
-      });
-    }, {
-      root: document.getElementById('tabsContainer'),
-      threshold: 0.5
+    let activeTabIdx = 0;
+    let tabScrollPositions = { 0: 0, 1: 0, 2: 0 };
+    try {
+      const savedScrolls = localStorage.getItem('n5_tab_scrolls');
+      if (savedScrolls) {
+        tabScrollPositions = JSON.parse(savedScrolls);
+      }
+      const savedTab = localStorage.getItem('n5_active_tab');
+      if (savedTab !== null) {
+        activeTabIdx = parseInt(savedTab, 10);
+      }
+    } catch (e) {
+      console.error('Lỗi khôi phục tọa độ cuộn:', e);
+    }
+
+    function saveScrollPositions() {
+      try {
+        localStorage.setItem('n5_tab_scrolls', JSON.stringify(tabScrollPositions));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // Lắng nghe sự kiện cuộn để ghi nhận tọa độ Y hiện tại của tab đang hoạt động
+    window.addEventListener('scroll', () => {
+      const loader = document.getElementById('app-loading-screen');
+      if (!loader) {
+        tabScrollPositions[activeTabIdx] = window.scrollY;
+        saveScrollPositions();
+      }
     });
 
-    document.querySelectorAll('.tab-pane').forEach(pane => observer.observe(pane));
+    function renderTables() {
+      // 1. Render Adjectives
+      const tab0 = document.getElementById('tab-0');
+      tab0.innerHTML = '';
+      VOCAB_DATA.adjectives.forEach((sec, idx) => {
+        const sectionId = `adj_${idx}`;
+        const sectionBlock = document.createElement('div');
+        sectionBlock.className = 'section-block';
+        sectionBlock.setAttribute('data-section-id', sectionId);
+        if (collapsedSections[sectionId]) {
+          sectionBlock.classList.add('section-collapsed');
+        }
+
+        const header = document.createElement('h2');
+        header.className = 'section-header';
+        header.innerHTML = `
+          <span>${sec.title}</span>
+          <span class="collapse-toggle-icon">▼</span>
+        `;
+        if (idx === 0) header.id = 'tinh-tu';
+
+        const contentWrapper = document.createElement('div');
+        contentWrapper.className = 'section-content-wrapper';
+
+        const tableContainer = createTableDOM(sec.rows, 'adjective');
+        contentWrapper.appendChild(tableContainer);
+
+        sectionBlock.appendChild(header);
+        sectionBlock.appendChild(contentWrapper);
+        tab0.appendChild(sectionBlock);
+
+        header.addEventListener('click', () => toggleSectionCollapse(sectionId));
+
+        if (idx < VOCAB_DATA.adjectives.length - 1) {
+          tab0.appendChild(document.createElement('hr'));
+        }
+      });
+
+      // 2. Render Verbs
+      const tab1 = document.getElementById('tab-1');
+      tab1.innerHTML = '';
+      const verbH2 = document.createElement('h2');
+      verbH2.id = 'dong-tu';
+      verbH2.textContent = '3. Động từ (Dōshi)';
+      tab1.appendChild(verbH2);
+
+      VOCAB_DATA.verbs.forEach((sec, idx) => {
+        const sectionId = `verb_${idx}`;
+        const sectionBlock = document.createElement('div');
+        sectionBlock.className = 'section-block';
+        sectionBlock.setAttribute('data-section-id', sectionId);
+        if (collapsedSections[sectionId]) {
+          sectionBlock.classList.add('section-collapsed');
+        }
+
+        const header = document.createElement('h3');
+        header.className = 'section-header';
+        header.innerHTML = `
+          <span>${sec.title}</span>
+          <span class="collapse-toggle-icon">▼</span>
+        `;
+
+        const contentWrapper = document.createElement('div');
+        contentWrapper.className = 'section-content-wrapper';
+
+        const tableContainer = createTableDOM(sec.rows, 'verb');
+        contentWrapper.appendChild(tableContainer);
+
+        sectionBlock.appendChild(header);
+        sectionBlock.appendChild(contentWrapper);
+        tab1.appendChild(sectionBlock);
+
+        header.addEventListener('click', () => toggleSectionCollapse(sectionId));
+
+        if (idx < VOCAB_DATA.verbs.length - 1) {
+          tab1.appendChild(document.createElement('hr'));
+        }
+      });
+
+      // 3. Render Te-forms
+      const teContainer = document.getElementById('te-groups-container');
+      if (teContainer) {
+        teContainer.innerHTML = '';
+        
+        function renderTeSection(sectionId, headerHTML, contentTable) {
+          const sectionBlock = document.createElement('div');
+          sectionBlock.className = 'section-block';
+          sectionBlock.setAttribute('data-section-id', sectionId);
+          if (collapsedSections[sectionId]) {
+            sectionBlock.classList.add('section-collapsed');
+          }
+
+          const header = document.createElement('div');
+          header.className = 'section-header group-header';
+          header.innerHTML = headerHTML;
+
+          const contentWrapper = document.createElement('div');
+          contentWrapper.className = 'section-content-wrapper';
+          contentWrapper.appendChild(contentTable);
+
+          sectionBlock.appendChild(header);
+          sectionBlock.appendChild(contentWrapper);
+
+          const hr = document.createElement('hr');
+          
+          teContainer.appendChild(sectionBlock);
+          teContainer.appendChild(hr);
+
+          header.addEventListener('click', () => toggleSectionCollapse(sectionId));
+        }
+
+        VOCAB_DATA.te_forms.forEach((sec, idx) => {
+          if (sec.title.includes('4. Chia nhóm Động từ thể て')) return;
+
+          let sectionId = '';
+          let headerHTML = '';
+          let contentTable = null;
+
+          if (sec.title.includes('4.1 Nhóm 3')) {
+            sectionId = 'te_group_3';
+            headerHTML = `
+              <h3>${sec.title}</h3>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="group-badge badge-irregular">Bất quy tắc (Irregular)</span>
+                <span class="collapse-toggle-icon">▼</span>
+              </div>
+            `;
+            contentTable = createTableDOM(sec.rows, 'te');
+            renderTeSection(sectionId, headerHTML, contentTable);
+
+          } else if (sec.title.includes('4.2 Nhóm 2')) {
+            const specialVerbs = ['おきます', 'います', 'かります', 'みます', 'あびます', 'おります', 'おchimasu', 'たります', 'きます']; // normalized to match
+            const specialNorm = ['おきます', 'います', 'かります', 'みます', 'あびます', 'おります', 'おちます', 'たります', 'きます'];
+            const specialRows = sec.rows.filter(row => specialNorm.some(v => (row[1] || '').includes(v)));
+            const regularRows = sec.rows.filter(row => !specialNorm.some(v => (row[1] || '').includes(v)));
+
+            // 1. Special Group 2
+            sectionId = 'te_group_2_special';
+            headerHTML = `
+              <h3>4.2A Nhóm 2 — Đặc biệt (Đuôi -i đặc biệt)</h3>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="group-badge badge-special">Đặc biệt / Bất quy tắc</span>
+                <span class="collapse-toggle-icon">▼</span>
+              </div>
+            `;
+            contentTable = createTableDOM(specialRows, 'te');
+            renderTeSection(sectionId, headerHTML, contentTable);
+
+            // 2. Regular Group 2
+            sectionId = 'te_group_2_regular';
+            headerHTML = `
+              <h3>4.2B Nhóm 2 — Quy tắc (Đuôi -e chuẩn)</h3>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="group-badge badge-regular">Quy tắc (Regular)</span>
+                <span class="collapse-toggle-icon">▼</span>
+              </div>
+            `;
+            contentTable = createTableDOM(regularRows, 'te');
+            renderTeSection(sectionId, headerHTML, contentTable);
+
+          } else if (sec.title.includes('Ngoại lệ')) {
+            sectionId = 'te_group_1_exception';
+            headerHTML = `
+              <h3>${sec.title}</h3>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="group-badge badge-irregular">Bất quy tắc (Ngoại lệ)</span>
+                <span class="collapse-toggle-icon">▼</span>
+              </div>
+            `;
+            contentTable = createTableDOM(sec.rows, 'te');
+            renderTeSection(sectionId, headerHTML, contentTable);
+
+          } else {
+            sectionId = `te_group_1_sub_${idx}`;
+            headerHTML = `
+              <h3>${sec.title}</h3>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="group-badge badge-regular">Quy tắc (Regular)</span>
+                <span class="collapse-toggle-icon">▼</span>
+              </div>
+            `;
+            contentTable = createTableDOM(sec.rows, 'te');
+            renderTeSection(sectionId, headerHTML, contentTable);
+          }
+        });
+
+        // Remove the last redundant HR
+        const lastHr = teContainer.querySelector('hr:last-child');
+        if (lastHr) lastHr.remove();
+      }
+    }
+
+    function createTableDOM(rows, type) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-responsive';
+
+      const table = document.createElement('table');
+
+      // Thead
+      const thead = document.createElement('thead');
+      const trHead = document.createElement('tr');
+      if (type === 'te') {
+        trHead.innerHTML = `
+          <th>Thể ます (Kanji - Hán Việt)</th>
+          <th>Thể ます (Hiragana)</th>
+          <th>→</th>
+          <th>Thể て (Kanji - Hán Việt)</th>
+          <th>Thể て (Hiragana)</th>
+          <th>Nghĩa</th>
+        `;
+      } else {
+        trHead.innerHTML = `
+          <th>Kanji (Hán Việt)</th>
+          <th>Hiragana</th>
+          <th>Nghĩa</th>
+          <th>↔</th>
+          <th>Kanji (Hán Việt)</th>
+          <th>Hiragana</th>
+          <th>Nghĩa</th>
+        `;
+      }
+      thead.appendChild(trHead);
+      table.appendChild(thead);
+
+      // Tbody
+      const tbody = document.createElement('tbody');
+      rows.forEach(row => {
+        const tr = document.createElement('tr');
+        if (type === 'te') {
+          tr.innerHTML = `
+            <td data-label='Thể ます (Kanji - Hán Việt)' data-key='${row[0] || ''}_masu'><span class='val'>${row[0] || ''}</span></td>
+            <td data-label='Thể ます (Hiragana)' data-key='${row[0] || ''}_masuhira'><span class='val'>${row[1] || ''}</span></td>
+            <td data-label='→'><span class='val'>${row[2] || '→'}</span></td>
+            <td data-label='Thể て (Kanji - Hán Việt)' data-key='${row[0] || ''}_te'><span class='val'>${row[3] || ''}</span></td>
+            <td data-label='Thể て (Hiragana)' data-key='${row[0] || ''}_tehira'><span class='val'>${row[4] || ''}</span></td>
+            <td data-label='Nghĩa'><span class='val'>${row[5] || ''}</span></td>
+          `;
+        } else {
+          tr.innerHTML = `
+            <td data-label='Kanji (Hán Việt)' data-key='${row[0] || ''}_kanji'><span class='val'>${row[0] || ''}</span></td>
+            <td data-label='Hiragana' data-key='${row[0] || ''}_hira'><span class='val'>${row[1] || ''}</span></td>
+            <td data-label='Nghĩa'><span class='val'>${row[2] || ''}</span></td>
+            <td data-label='↔'><span class='val'>${row[3] || ''}</span></td>
+            <td data-label='Kanji (Hán Việt)' data-key='${row[4] || ''}_kanji'><span class='val'>${row[4] || ''}</span></td>
+            <td data-label='Hiragana' data-key='${row[4] || ''}_hira'><span class='val'>${row[5] || ''}</span></td>
+            <td data-label='Nghĩa'><span class='val'>${row[6] || ''}</span></td>
+          `;
+        }
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrapper.appendChild(table);
+
+      wrapper.querySelectorAll('td').forEach(td => {
+        td.addEventListener('click', function (e) {
+          if (document.body.classList.contains('quiz-mode')) {
+            if (!this.classList.contains('revealed')) {
+              burstConfettiAt(e.pageX, e.pageY);
+            }
+            this.classList.toggle('revealed');
+            saveRevealedStates();
+          }
+        });
+      });
+
+      return wrapper;
+    }
+
+    function scrollToTab(index, smoothScroll = true) {
+      // 1. Ghi nhận tọa độ cuộn của tab cũ trước khi chuyển đi
+      const loader = document.getElementById('app-loading-screen');
+      if (!loader) {
+        tabScrollPositions[activeTabIdx] = window.scrollY;
+      }
+
+      // 2. Chuyển chỉ số tab đang hoạt động
+      activeTabIdx = index;
+      localStorage.setItem('n5_active_tab', index);
+      saveScrollPositions();
+
+      // 3. Cập nhật DOM classes
+      document.querySelectorAll('.tab-pane').forEach((pane, i) => {
+        if (i === index) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+      document.querySelectorAll('.tab-link').forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // 4. Khôi phục tọa độ cuộn của tab đích
+      const targetY = tabScrollPositions[index] || 0;
+      window.scrollTo({ top: targetY, behavior: 'auto' });
+    }
+
+    function toggleViewMode() {
+      const isCardMode = document.getElementById('viewToggle').checked;
+      localStorage.setItem('n5_flashcard_mode', isCardMode);
+      if (isCardMode) {
+        document.body.classList.add('flashcard-mode');
+      } else {
+        document.body.classList.remove('flashcard-mode');
+      }
+    }
+
+    function createFlashcards() {
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabPanes.forEach((pane) => {
+        // Remove existing grids and containers inside this pane
+        pane.querySelectorAll('.flashcards-grid, .flashcards-container-div').forEach(g => g.remove());
+
+        // Determine card type based on pane id
+        let cardType = 'adjective';
+        if (pane.id === 'tab-1') cardType = 'verb';
+        else if (pane.id === 'tab-2') cardType = 'te';
+
+        const tables = Array.from(pane.querySelectorAll('table')).filter(t => !t.closest('.note-box'));
+        tables.forEach(table => {
+          const containerDiv = document.createElement('div');
+          containerDiv.className = 'flashcards-container-div';
+
+          const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+          const isTeForm = headers.some(h => h.includes('Thể て') || h.includes('Nhóm'));
+          const rows = table.querySelectorAll('tbody tr');
+
+          let tePairContainer = null;
+          let teCount = 0;
+
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            if (cells.length === 0) return;
+
+            if (isTeForm) {
+              if (headers.some(h => h.includes('Nhóm 1A') || h.includes('Nhóm 2'))) {
+                const pairContainer = document.createElement('div');
+                pairContainer.className = 'flashcard-pair';
+                const firstVal = cells[0].textContent.trim();
+                const secondVal = cells[1] ? cells[1].textContent.trim() : '';
+
+                if (firstVal && firstVal.includes('→')) {
+                  const parts = firstVal.split('→');
+                  const card1 = buildCard(parts[1].trim(), parts[0].trim(), '', 'Nhóm 1A', true, cardType);
+                  if (card1) pairContainer.appendChild(card1);
+                }
+                if (secondVal && secondVal.includes('→')) {
+                  const parts = secondVal.split('→');
+                  if (firstVal && firstVal.includes('→')) {
+                    const sep = document.createElement('div');
+                    sep.className = 'flashcard-separator';
+                    sep.textContent = '↔';
+                    pairContainer.appendChild(sep);
+                  }
+                  const card2 = buildCard(parts[1].trim(), parts[0].trim(), '', 'Nhóm 2', true, cardType);
+                  if (card2) pairContainer.appendChild(card2);
+                }
+                if (pairContainer.children.length > 0) {
+                  containerDiv.appendChild(pairContainer);
+                }
+              } else {
+                // Regular Te-form table:
+                const frontMeaning = cells[5] ? cells[5].textContent.trim() : '';
+                const backKanji = cells[0].textContent.trim() + ' ➔ ' + cells[3].textContent.trim();
+                const backHira = cells[1].textContent.trim() + ' ➔ ' + cells[4].textContent.trim();
+
+                const card = buildCard(frontMeaning, backKanji, backHira, 'Thể te', true, cardType);
+                if (card) {
+                  if (teCount % 2 === 0) {
+                    tePairContainer = document.createElement('div');
+                    tePairContainer.className = 'flashcard-pair';
+                    containerDiv.appendChild(tePairContainer);
+                  }
+                  tePairContainer.appendChild(card);
+                  teCount++;
+                }
+              }
+            } else {
+              const pairContainer = document.createElement('div');
+              pairContainer.className = 'flashcard-pair';
+
+              // Adjectives/Verbs columns: Kanji1, Hira1, Mean1, ↔, Kanji2, Hira2, Mean2
+              const frontMean1 = cells[2] ? cells[2].textContent.trim() : '';
+              const backKanji1 = cells[0] ? cells[0].textContent.trim() : '';
+              const backHira1 = cells[1] ? cells[1].textContent.trim() : '';
+
+              let card1 = null;
+              if (frontMean1 && backKanji1) {
+                card1 = buildCard(frontMean1, backKanji1, backHira1, '', false, cardType);
+                if (card1) pairContainer.appendChild(card1);
+              }
+
+              if (cells.length > 4) {
+                const frontMean2 = cells[6] ? cells[6].textContent.trim() : '';
+                const backKanji2 = cells[4] ? cells[4].textContent.trim() : '';
+                const backHira2 = cells[5] ? cells[5].textContent.trim() : '';
+
+                if (frontMean2 && backKanji2 && backKanji2 !== '↔') {
+                  if (card1) {
+                    const sep = document.createElement('div');
+                    sep.className = 'flashcard-separator';
+                    sep.textContent = '↔';
+                    pairContainer.appendChild(sep);
+                  }
+                  const card2 = buildCard(frontMean2, backKanji2, backHira2, '', false, cardType);
+                  if (card2) pairContainer.appendChild(card2);
+                }
+              }
+
+              if (pairContainer.children.length > 0) {
+                containerDiv.appendChild(pairContainer);
+              }
+            }
+          });
+
+          // Insert right after .table-responsive
+          const tableResponsive = table.closest('.table-responsive');
+          if (tableResponsive) {
+            tableResponsive.parentNode.insertBefore(containerDiv, tableResponsive.nextSibling);
+          } else {
+            table.parentNode.insertBefore(containerDiv, table.nextSibling);
+          }
+        });
+      });
+    }
+
+    function buildCard(front, backKanji, backHira, tag, isTe, cardType) {
+      if (!front) return null;
+      const card = document.createElement('div');
+      card.className = 'flashcard';
+      card.onclick = () => card.classList.toggle('is-flipped');
+
+      const kanjiClass = isTe ? 'back-kanji-te' : 'back-kanji';
+      const hiraClass = isTe ? 'back-hira-te' : 'back-hira';
+
+      card.innerHTML = `
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <div class="front-mean">${front}</div>
+          </div>
+          <div class="flashcard-back">
+            <div class="${kanjiClass}">${backKanji}</div>
+            <div class="${hiraClass}">${backHira}</div>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    function saveRevealedStates() {
+      const revealedKeys = Array.from(document.querySelectorAll('td.revealed'))
+        .map(td => td.getAttribute('data-key'))
+        .filter(Boolean);
+      localStorage.setItem('n5_revealed_keys', JSON.stringify(revealedKeys));
+    }
+
+    function restoreRevealedStates() {
+      try {
+        const saved = localStorage.getItem('n5_revealed_keys');
+        if (saved) {
+          const keys = JSON.parse(saved);
+          const tds = Array.from(document.querySelectorAll('td[data-key]'));
+          keys.forEach(key => {
+            const td = tds.find(el => el.getAttribute('data-key') === key);
+            if (td) td.classList.add('revealed');
+          });
+        }
+      } catch (e) {
+        console.error('Lỗi khôi phục trạng thái từ vựng đã nhấp:', e);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTables();
+      createFlashcards();
+      createSakuraPetals();
+
+      // Khôi phục tab đã lưu
+      const savedTab = localStorage.getItem('n5_active_tab');
+      if (savedTab !== null) {
+        scrollToTab(parseInt(savedTab, 10), false);
+      } else {
+        // Nếu không có tab đã lưu (sau khi reset), đưa về tab 0 và scroll lên đầu
+        scrollToTab(0, false);
+      }
+
+      // Khôi phục các trạng thái đã lưu
+      const savedQuizMode = localStorage.getItem('n5_quiz_mode') === 'true';
+      const savedFlashcardMode = localStorage.getItem('n5_flashcard_mode') === 'true';
+
+      if (savedQuizMode) {
+        document.getElementById('quizToggle').checked = true;
+        toggleQuizMode();
+      }
+      if (savedFlashcardMode) {
+        document.getElementById('viewToggle').checked = true;
+        toggleViewMode();
+      }
+
+      restoreRevealedStates();
+
+      // Hộp loading screen biến mất ngẫu nhiên từ 0.5s đến 1.5s nhìn siêu kute và tự nhiên
+      const randomDuration = Math.random() * (1500 - 500) + 500;
+      setTimeout(() => {
+        const loader = document.getElementById('app-loading-screen');
+        if (loader) {
+          loader.classList.add('fade-out');
+          setTimeout(() => loader.remove(), 250);
+        }
+      }, randomDuration);
+    });
+
+    function burstConfettiAt(x, y) {
+      const colors = ['#ff7b90', '#ffc2d1', '#ffe5ec', '#ffccd5', '#ffb3c1', '#ffd166'];
+      for (let i = 0; i < 10; i++) {
+        const p = document.createElement('div');
+        p.className = 'click-confetti-particle';
+        p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        p.style.left = (x - 4) + 'px';
+        p.style.top = (y - 4) + 'px';
+        
+        const size = Math.random() * 4 + 4; // 4px to 8px - more visible and beautiful!
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 30 + 20; // 20px to 50px distance
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - 10; // float slightly upward
+        
+        p.style.setProperty('--tx', `${tx}px`);
+        p.style.setProperty('--ty', `${ty}px`);
+        p.style.animation = 'clickConfettiFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 500);
+      }
+    }
+
+    function createSakuraPetals() {
+      const container = document.createElement('div');
+      container.id = 'sakura-container';
+      container.style.position = 'fixed';
+      container.style.top = '0';
+      container.style.left = '0';
+      container.style.width = '100vw';
+      container.style.height = '100vh';
+      container.style.zIndex = '95';
+      container.style.pointerEvents = 'none';
+      container.style.overflow = 'hidden';
+      document.body.appendChild(container);
+
+      const maxPetals = 15;
+      for (let i = 0; i < maxPetals; i++) {
+        spawnPetal(container, true);
+      }
+    }
+
+    function spawnPetal(container, initial = false) {
+      const petal = document.createElement('div');
+      petal.className = 'sakura-petal';
+      
+      const size = Math.random() * 8 + 6; // 6px to 14px
+      petal.style.width = size + 'px';
+      petal.style.height = size + 'px';
+      
+      petal.style.left = Math.random() * 100 + 'vw';
+      
+      const startY = initial ? (Math.random() * 90) : -10;
+      petal.style.top = startY + 'vh';
+      
+      const duration = Math.random() * 10 + 8; // 8s to 18s - slow and elegant
+      petal.style.animation = `sakuraFall ${duration}s linear forwards`;
+      
+      const dx = Math.random() * 150 - 50; // horizontal drift
+      const rot = Math.random() * 450 + 270;
+      
+      petal.style.setProperty('--dx', `${dx}px`);
+      petal.style.setProperty('--rot', `${rot}deg`);
+      
+      container.appendChild(petal);
+      
+      setTimeout(() => {
+        petal.remove();
+        spawnPetal(container, false);
+      }, duration * 1000);
+    }
 
     function toggleQuizMode() {
       const isQuiz = document.getElementById('quizToggle').checked;
+      localStorage.setItem('n5_quiz_mode', isQuiz);
       if (isQuiz) {
         document.body.classList.add('quiz-mode');
       } else {
         document.body.classList.remove('quiz-mode');
         // Clear all revealed states
         document.querySelectorAll('td.revealed').forEach(td => td.classList.remove('revealed'));
+        localStorage.removeItem('n5_revealed_keys');
       }
     }
 
-    // Add click event for mobile touch compatibility
-    document.querySelectorAll('td').forEach(td => {
-      td.addEventListener('click', function () {
-        if (document.body.classList.contains('quiz-mode')) {
-          this.classList.toggle('revealed');
-        }
-      });
-    });
+    function resetAppMemory() {
+      const isSure = confirm("Bé Mochi hỏi nè: Cậu có chắc muốn xóa sạch ký ức học tập của chúng mình không? 🥺👉👈 Tớ sẽ quên hết tab đang học, các từ đã nhớ và vị trí cuộn trang đấy... 🧹🌸");
+      if (isSure) {
+        localStorage.removeItem('n5_active_tab');
+        localStorage.removeItem('n5_quiz_mode');
+        localStorage.removeItem('n5_flashcard_mode');
+        localStorage.removeItem('n5_revealed_keys');
+        localStorage.removeItem('n5_tab_scrolls');
+        localStorage.removeItem('n5_collapsed_sections');
+        alert("Ký ức đã được dọn sạch bong kin kít rồi! Hãy cùng nhau xây dựng lại kỷ niệm mới nhé! ✨( •̀ ω •́ )✧");
+        window.location.reload();
+      }
+    }
   </script>
 
 </body>
